@@ -8,17 +8,24 @@ namespace ExercicioEnumEComp.Classes
     {
         public int Quantidade { get; set; }
         public double Preco { get; set; }
-        public List<Produto> Produto { get; set; } = new List<Produto>();
+        public Produto Produto { get; set; }
 
         public OrdemPedido()
         {
 
         }
 
-        public OrdemPedido(int quantidade, double preco)
+        public OrdemPedido(int quantidade, double preco, Produto produto)
         {
             Quantidade = quantidade;
             Preco = preco;
+            Produto = produto;
+        }
+
+        public double SubTotal()
+        {
+            Preco = Produto.Preco;
+            return Preco * Quantidade;
         }
     }
 }
