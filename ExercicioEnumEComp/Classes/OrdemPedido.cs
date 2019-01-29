@@ -24,8 +24,9 @@ namespace ExercicioEnumEComp.Classes
 
         public double SubTotal()
         {
-            Preco = Produto.Preco;
+           
             return Preco * Quantidade;
         }
+        
     }
 }

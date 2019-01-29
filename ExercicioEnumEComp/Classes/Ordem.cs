@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ExercicioEnumEComp.Classes
@@ -42,6 +43,30 @@ namespace ExercicioEnumEComp.Classes
                 total += op.SubTotal();
             }
             return total;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("ORDER SUMMARY: ");
+            sb.Append("Order moment: ");
+            sb.AppendLine(Date.ToString("dd/MM/yyyy HH:mm:ss"));
+            sb.Append("Order status: ");
+            sb.AppendLine(OrderStatus.Processing.ToString());
+            sb.Append("Client: ");
+            sb.Append(Cliente.Name + "(" + Cliente.DataNascimento.ToString("dd/MM/yyyy") + ") - ");
+            sb.AppendLine(Cliente.Email);
+            sb.AppendLine("Order items: ");
+            foreach (OrdemPedido op in OrdemPedido)
+            {
+                sb.Append(op.Produto.Nome+ ", $" + op.Preco.ToString(CultureInfo.InvariantCulture) + ", Quantidade: " + op.Quantidade +
+                    ", SubTotal: " + op.SubTotal().ToString(CultureInfo.InvariantCulture));
+                sb.AppendLine("");
+            }
+            sb.AppendLine("Total price: " + Total());
+
+            return sb.ToString();
+            
         }
 
     }
