@@ -31,5 +31,27 @@ namespace TrabPost.Classes
         {
             Comentarios.Remove(comentario);
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Titulo);
+            sb.Append(Likes);
+            sb.Append(" Likes - ");
+            sb.Append(Momento.ToString("dd/MM/yyyy HH:mm:ss\n"));
+            sb.AppendLine(Conteudo);
+            sb.AppendLine("Cometarios:");
+            foreach (Comentario c in Comentarios)
+            {
+                sb.AppendLine(c.Texto);
+            }
+            {
+
+            }
+            return sb.ToString();
+
+
+
+        }
     }
 }
