@@ -54,7 +54,7 @@ namespace ExercicioEnumEComp.Classes
             sb.Append("Order status: ");
             sb.AppendLine(OrderStatus.Processing.ToString());
             sb.Append("Client: ");
-            sb.Append(Cliente.Name + "(" + Cliente.DataNascimento.ToString("dd/MM/yyyy") + ") - ");
+            sb.Append(Cliente.Name + " (" + Cliente.DataNascimento.ToString("dd/MM/yyyy") + ") - ");
             sb.AppendLine(Cliente.Email);
             sb.AppendLine("Order items: ");
             foreach (OrdemPedido op in OrdemPedido)
